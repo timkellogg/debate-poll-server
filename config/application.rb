@@ -32,6 +32,26 @@ module Server
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
     
+    config.middleware.insert_before ActionDispatch::Static, Rack::Cors do
+      allow do
+        origins 'http://debatevote.s3-website-us-west-2.amazonaws.com/'
+
+        resource '/cors',
+          :headers => :any,
+          :methods => [:post],
+          :credentials => true,
+          :max_age => 0
+
+        resource '*',
+          :headers => :any,
+          :methods => [:get, :put, :patch, :options, :head],
+          :max_age => 0
+      end
+    end
+    
+    
+
+    
   end
 end
 
