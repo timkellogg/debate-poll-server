@@ -31,7 +31,7 @@ class CandidatesController < ApplicationController
   # PATCH/PUT /candidates/1.json
   def update
     @candidate = Candidate.find(params[:id])
-binding.pry
+
     if @candidate.update(candidate_params)
       head :no_content
     else
