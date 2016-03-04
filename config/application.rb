@@ -31,6 +31,18 @@ module Server
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    
+    config.middleware.insert_before 0, "Rack::Cors", :debug => true, :logger => (-> {Rails.logger }) do
+      allow do
+        origins 'localhost:4000'
+
+        resource '*',
+          :headers => :any,
+          :methods => [:get, :post, :delete, :put, :options, :head, :patch],
+          :expose  => ['access-token', 'expiry', 'token-type', 'uid', 'client'],
+          :max_age => 0
+      end
+    end
   end
   
 end
