@@ -11,3 +11,6 @@ gem 'pg'
 
 # CORS
 gem 'rack-cors', :require => 'rack/cors'
+
+# Production server
+gem 'puma'
