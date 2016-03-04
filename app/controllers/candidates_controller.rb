@@ -34,7 +34,7 @@ class CandidatesController < ApplicationController
     
     @candidate.votes += 1
 
-    if @candidate.update(candidate_params)
+    if @candidate.save!
       head :no_content
     else
       render json: @candidate.errors, status: :unprocessable_entity
