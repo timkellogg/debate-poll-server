@@ -1,7 +1,8 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  config.serve_static_assets = true
+  # Enables serving everything in the `public` folder and is unrelated to the asset pipeline
+  config.serve_static_files = true
   
   # Code is not reloaded between requests.
   config.cache_classes = true
