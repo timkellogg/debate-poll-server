@@ -34,7 +34,7 @@ module Server
     
     config.middleware.insert_before 0, "Rack::Cors", :debug => true, :logger => (-> {Rails.logger }) do
       allow do
-        origins 'localhost:4000'
+        origins '*'
 
         resource '*',
           :headers => :any,
