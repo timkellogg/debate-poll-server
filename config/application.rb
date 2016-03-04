@@ -34,11 +34,11 @@ module Server
     
     config.middleware.insert_before 0, "Rack::Cors", :debug => true, :logger => (-> {Rails.logger }) do
       allow do
-        origins '*'
+        origins 'http://debatevote.s3-website-us-west-2.amazonaws.com/'
 
         resource '*',
           :headers => :any,
-          :methods => [:get, :post, :delete, :put, :options, :head, :patch],
+          :methods => [:get, :put, :options, :head, :patch],
           :expose  => ['access-token', 'expiry', 'token-type', 'uid', 'client'],
           :max_age => 0
       end

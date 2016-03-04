@@ -39,14 +39,6 @@ class CandidatesController < ApplicationController
     end
   end
 
-  # # DELETE /candidates/1
-  # # DELETE /candidates/1.json
-  # def destroy
-  #   @candidate.destroy
-  # 
-  #   head :no_content
-  # end
-
   private
 
     def set_candidate
