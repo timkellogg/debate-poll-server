@@ -34,7 +34,7 @@ module Server
     
     config.middleware.insert_before 0, "Rack::Cors", :debug => true, :logger => (-> {Rails.logger }) do
       allow do
-        origins 'http://debatevote.s3-website-us-west-2.amazonaws.com/'
+        origins '*'
 
         resource '*',
           :headers => :any,
