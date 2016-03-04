@@ -31,6 +31,8 @@ class CandidatesController < ApplicationController
   # PATCH/PUT /candidates/1.json
   def update
     @candidate = Candidate.find(params[:id])
+    
+    @candidate.votes += 1
 
     if @candidate.update(candidate_params)
       head :no_content
