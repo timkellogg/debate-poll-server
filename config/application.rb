@@ -33,26 +33,19 @@ module Server
     config.active_record.raise_in_transactional_callbacks = true
     
     config.middleware.insert_before ActionDispatch::Static, Rack::Cors do
+      
       allow do
-        origins 'http://debatevote.s3-website-us-west-2.amazonaws.com/'
-
-        resource '/cors',
-          :headers => :any,
-          :methods => [:post],
-          :credentials => true,
-          :max_age => 0
-
-        resource '*',
+        origins '*'
+        
+        resource '/*',
           :headers => :any,
           :methods => [:get, :put, :patch, :options, :head],
           :max_age => 0
       end
+      
     end
-    
-    
-
-    
   end
+  
 end
 
 
