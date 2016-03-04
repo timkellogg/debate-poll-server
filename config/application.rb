@@ -38,7 +38,7 @@ module Server
 
         resource '*',
           :headers => :any,
-          :methods => [:get, :put, :options, :head, :patch],
+          :methods => [:get, :put, :post, :options, :head, :patch],
           :expose  => ['access-token', 'expiry', 'token-type', 'uid', 'client'],
           :max_age => 0
       end
