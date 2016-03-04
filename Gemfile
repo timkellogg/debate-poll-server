@@ -14,3 +14,5 @@ gem 'rack-cors', :require => 'rack/cors'
 
 # Production server
 gem 'puma'
+
+gem 'rails_12factor', group: :production
